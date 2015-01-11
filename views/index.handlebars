@@ -1,9 +1,27 @@
-<html>
-    <body>
+<!doctype html>
+<html ng-app='app'>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+
+
+
         <h1>NAP Tech Test</h1>
 
         <p><img src="/desktop.jpg"><img src="/mobile.jpg"></p>
+        <div ng-controller="ProductListCtrl">
 
+        	<ul class="products">
+        	  <li ng-repeat="product in products | filter:query | orderBy:orderProp"
+        	      class="thumbnail product-listing">
+
+        	    <p>{[{product.name}]}</p>
+        	  </li>
+        	</ul>
+
+        </div>
         <code>{{products}}</code>
     </body>
 </html>
