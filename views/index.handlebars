@@ -9,12 +9,20 @@
         <h1>WHAT'S NEW</h1>
 
         <div ng-controller="ProductListCtrl">
+      		Search: <input ng-model="query">
+      		Sort by:
+      		<select ng-model="orderProp">
+      		  <option value="name">Name</option>
+      		  <option value="price">Price</option>
+      		</select>
+
 
         	<ul class="products">
         	  <li ng-repeat="product in products | filter:query | orderBy:orderProp"
         	      class="thumbnail product-listing">
 
         	    <p>{[{product.name}]}</p>
+        	    <p>{[{product.currency}]}{[{product.price}]}</p>
         	    <img ng-src="{[{product.image.small}]}">
         	  </li>
         	</ul>
