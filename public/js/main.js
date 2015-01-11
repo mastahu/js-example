@@ -9,6 +9,9 @@ angular.module('app').config(function($interpolateProvider) {
 angular.module('app').controller('ProductListCtrl', [ '$scope', '$http', function($scope, $http) {
 	console.log('jee');
 
-    $scope.products = [{name: "aaa"}, {name: "bbb"}];
+
+  $http.get('api/products').success(function(response) {
+    $scope.products = response.data;
+  });
 
 }]);
