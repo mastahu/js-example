@@ -21,8 +21,8 @@
       		</select>
 
 
-        	<ul class="products">
-        	  <li ng-repeat="product in products | filter:query | orderBy:orderProp"
+        	<ul id="products" when-scrolled="loadMore()">
+        	  <li ng-repeat="product in products | filter: query | orderBy:orderProp track by $index"
         	      class="thumbnail product-listing">
 
         	    <img ng-src="{[{product.image.small}]}">

@@ -2,3 +2,9 @@
 	text-transform: uppercase;
     font-weight: bold;	
 }
+
+#products {
+    height: 400px;
+    overflow: auto;
+    margin-top: 20px;
+}
