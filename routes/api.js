@@ -33,3 +33,36 @@ router.get('/products/', function (req, res, next) {
         })
     });
 });
+
+Array.prototype.unique = function()
+{
+    var n = {},r=[];
+    for(var i = 0; i < this.length; i++) 
+    {
+        if (!n[this[i]]) 
+        {
+            n[this[i]] = true; 
+            r.push(this[i]); 
+        }
+    }
+    return r;
+}
+
+var designers = allProducts.map(function(product) {
+           return product.brand.name.en;
+        })
+
+designers = designers.unique();
+
+designers.sort();
+
+router.get('/designers/', function (req, res, next) {
+
+    res.json(designers.map(function(designer) {
+
+            return {
+                name: designer
+            }
+        })
+    );
+});

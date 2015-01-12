@@ -21,11 +21,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Setup routes
 router.get('/', function (req, res, next) {
     // Fetch from mock API
-    request('http://127.0.0.1:3000/api/products', function(error, response, body) {
+    request('http://127.0.0.1:3000/api/designers', function(error, response, body) {
         if (error) {
             return next(error);
         }
-        res.render('index', {products: body});
+
+        res.render('index', {designers: JSON.parse(response.body)});
     });
 });
 
